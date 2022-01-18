@@ -49,6 +49,11 @@ while len(states_already_guessed) < 51:
     answer_state = screen.textinput(title="Guess the State", prompt="What's another state's name?").title()
 
     if answer_state == "Exit":
+        # states_to_learn.csv
+
+        # Remove guessed states from list of states
+        for item in states_already_guessed:
+            list_of_states.remove(item)
         # Create a dictionary of states_to_learn
         states_to_learn = {"States To Learn ": list_of_states}
         # Turn the dictionary into a DataFrame
@@ -77,10 +82,6 @@ while len(states_already_guessed) < 51:
         print("Wrong! Guess again")
         wrong_answer_writer.write("Wrong! Guess Again")
 
-# states_to_learn.csv
 
-# Remove guessed states from list of states
-for item in states_already_guessed:
-    list_of_states.remove(item)
 
 screen.mainloop()
